@@ -1,7 +1,24 @@
-# novozymes-enzyme-stability-prediction
+# PROJECT TITLE 
 
-## Goal of the Competition
-Enzymes are proteins that act as catalysts in the chemical reactions of living organisms. The goal of this competition is to predict the thermostability of enzyme variants. The experimentally measured thermostability (melting temperature) data includes natural sequences, as well as engineered sequences with single or multiple mutations upon the natural sequences.
 
-Understanding and accurately predict protein stability is a fundamental problem in biotechnology. Its applications include enzyme engineering for addressing the world’s challenges in sustainability, carbon neutrality and more. Improvements to enzyme stability could lower costs and increase the speed scientists can iterate on concepts.
+## NON-TECHNICAL EXPLANATION OF YOUR PROJECT
+100 words to explain what your project is about to a general audience. 
+
+## DATA
+A summary of the data you’re using, remembering to include where you got it and any relevant citations. 
+
+## MODEL 
+A summary of the model you’re using and why you chose it. 
+
+## HYPERPARAMETER OPTIMSATION
+Description of which hyperparameters you have and how you chose to optimise them. 
+
+## RESULTS
+A summary of your results and what you can learn from your model 
+
+You can include images of plots using the code below:
+![Screenshot](image.png)
+
+## (OPTIONAL: CONTACT DETAILS)
+If you are planning on making your github repo public you may wish to include some contact information such as a link to your twitter or an email address. 
 
