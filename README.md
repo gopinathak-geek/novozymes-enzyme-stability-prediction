@@ -32,5 +32,5 @@ This model did not perform well, so we need to develop the model considering the
 
 ## CONTACT DETAILS
 * Name - Gopinath Alagar Karunanithi
-* [LinkedIn](https://www.linkedin.com/in/gopinathak/)
-* [Gmail](gopinathak.geek@gmail.com)
+* LinkedIn - [LinkedIn](https://www.linkedin.com/in/gopinathak/)
+* Gmail - <gopinathak.geek@gmail.com>
