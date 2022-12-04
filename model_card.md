@@ -1,23 +1,27 @@
 # Model Card
 
-See the [example Google model cards](https://modelcards.withgoogle.com/model-reports) for inspiration. 
+The model analyzed in this card predicts the melting point of the enzyme.
+
+On this page, you can learn more about how well the model performs on the given protein sequence.
 
 ## Model Description
 
-**Input:** Describe the inputs of your model 
+**Input:** Protein sequence and Ph
 
-**Output:** Describe the output(s) of your model
+**Output:** Melting temperature of the enzyme
 
-**Model Architecture:** Describe the model architecture you’ve used
+**Model Architecture:** Novonet - Convolution neural network
 
 ## Performance
 
-Give a summary graph or metrics of how the model performs. Remember to include how you are measuring the performance and what data you analysed it on. 
+The performance of the model was evaluated on the [Spearman's correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient) between the ground truth and the predictions.
+
+This model does not perform well, since this model consider only the molecular weight of the amino acid and the ph. To improve this model performace we need to get the other important features of the amino acids
 
 ## Limitations
 
-Outline the limitations of your model.
+Presently the model cannot be used for the predection, we need to improve the performace of the model.
 
 ## Trade-offs
 
-Outline any trade-offs of your model, such as any circumstances where the model exhibits performance issues. 
+The model cannot be user for the predection but by this model we studied that the melting temperature of the protein does not rely only upon the molecular weight of the amino acid.
