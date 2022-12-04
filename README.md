@@ -17,7 +17,9 @@ VPVNPEPDATSVENVALKTGSGDSQSDPIKADLEVKGQSALPFDVDCWAILCKGAPNVLQRVNEKTKNSNRDRSGANKGP
 For this competetion the model used is Convolution neural network. The behaviour of the protein is based on the 3d structure and the folding structure is based on the combination of 20 amino acids. Since the protein folding is depends upon the combination the CNN will find the important feature and predict.
 
 ## HYPERPARAMETER OPTIMSATION
-[Optuna](https://optuna.org/) - A hyper parameter optimization framework is used to tune the hyper parameter and the following hyperparametes are tuned  * Number of Fully connected layers in the CNN
+[Optuna](https://optuna.org/) - A hyper parameter optimization framework is used to tune the hyper parameter and the following hyperparametes are tuned
+
+* Number of Fully connected layers in the CNN
 * Number of units in each layer
 * Drop out
 * optimizer
