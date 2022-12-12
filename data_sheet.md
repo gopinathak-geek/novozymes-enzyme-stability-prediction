@@ -19,7 +19,7 @@ The data is provided by the competetion host
 
 ## Preprocessing/cleaning/labelling
 
-The train data contains some improper information, the host has provided the update of the training data, so the training data is modified accoriding to the updated information, 
+The train data contains some improper information, the host has provided the update of the training data, so the training data is modified accoriding to the updated information
  
 
 ## Maintenance
