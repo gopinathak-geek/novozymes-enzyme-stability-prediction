@@ -1,0 +1,316 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN08/4GbQVO3ILNwMA1vCBS",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/gopinathak-geek/novozymes-enzyme-stability-prediction/blob/main/sequence%20to%20structure\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 131,
+      "metadata": {
+        "id": "eu69z9XnU90S"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np\n",
+        "from PIL import Image"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "```\n",
+        "def proteinSequenceToAmioAcidMolecularWeightWithPhAndLabel(data):\n",
+        "  amionAcidSequence = []\n",
+        "  img = []\n",
+        "  label = []\n",
+        "  for index, row in data.iterrows():\n",
+        "    ph = row['pH']\n",
+        "    tm = row['tm']\n",
+        "    molecularWeightOfAminoAcidInSequence = []\n",
+        "    pHofProteinSequence = []\n",
+        "    for aminoacid in (row['protein_sequence']):\n",
+        "      molecularWeight = getMolecularWeight(aminoacid)\n",
+        "      molecularWeightOfAminoAcidInSequence.append(molecularWeight/110)\n",
+        "      pHofProteinSequence.append(ph)\n",
+        "    a = np.array([molecularWeightOfAminoAcidInSequence,pHofProteinSequence])\n",
+        "    a = a[None, :]\n",
+        "    img.append(a)\n",
+        "    label.append(tm)\n",
+        "  return [img, label]\n",
+        "\n",
+        "\n",
+        "\n",
+        "  from PIL import Image\n",
+        "\n",
+        "image = Image.fromarray(data)\n",
+        "\n",
+        "display(image)\n",
+        "  ```\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "C42cbOvenThk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "test = np.zeros((2, 3, 3), dtype=np.uint8)\n",
+        "test[0,0] = [1, 1, 1]\n",
+        "test\n",
+        "test.shape"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XEeWBi3yOt6E",
+        "outputId": "25c4b901-e3ce-4f7e-ab7e-8378da7d8dc7"
+      },
+      "execution_count": 132,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(2, 3, 3)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 132
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lol = np.zeros((7, 7, 3), dtype=np.uint8)\n",
+        "rows = 5\n",
+        "for i in range(0, rows + 1):\n",
+        "    for j in range(0, i + 1):\n",
+        "        print(i,j)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GDh8uEL254_K",
+        "outputId": "738f7e10-7f00-44c1-8ff6-6f33d84e54c4"
+      },
+      "execution_count": 148,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 0\n",
+            "1 0\n",
+            "1 1\n",
+            "2 0\n",
+            "2 1\n",
+            "2 2\n",
+            "3 0\n",
+            "3 1\n",
+            "3 2\n",
+            "3 3\n",
+            "4 0\n",
+            "4 1\n",
+            "4 2\n",
+            "4 3\n",
+            "4 4\n",
+            "5 0\n",
+            "5 1\n",
+            "5 2\n",
+            "5 3\n",
+            "5 4\n",
+            "5 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for y in range(1, 7):\n",
+        "  print(y)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Fmc3e33IOyAh",
+        "outputId": "3d900af0-f0d0-4b3e-995c-a4ee91f43d33"
+      },
+      "execution_count": 160,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n",
+            "5\n",
+            "6\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def carbon():\n",
+        "  carbonImage = np.zeros((7, 7, 3), dtype=np.uint8)\n",
+        "  for x in range (7):\n",
+        "    for y in range (7):\n",
+        "      carbonImage[x, y] = [255, 255, 255]\n",
+        "  return carbonImage\n",
+        "\n",
+        "def getDefaultAminoAcidStructure():\n",
+        "  '''\n",
+        "    H H O \n",
+        "    | | ||\n",
+        "  H-N-C-C\n",
+        "    | | |\n",
+        "    H R O\n",
+        "  '''\n",
+        "  defaultStructure = np.zeros((29, 40, 3), dtype=np.uint8)\n",
+        "  \n",
+        "  #Hydrogen\n",
+        "  for x in range(11, 18):\n",
+        "    for y in range(0, 7):\n",
+        "      defaultStructure[x, y] = [128, 128, 128]\n",
+        "  \n",
+        "  #Hydrogen\n",
+        "  for x in range(0, 7):\n",
+        "    for y in range(11, 18):\n",
+        "      defaultStructure[x, y] = [128, 128, 128]\n",
+        "\n",
+        "  #Hydrogen\n",
+        "  for x in range(22, 29):\n",
+        "    for y in range(11, 18):\n",
+        "      defaultStructure[x, y] = [128, 128, 128]\n",
+        "      \n",
+        "  #Nitrogen\n",
+        "  for x in range(11, 18):\n",
+        "    for y in range(11, 18):\n",
+        "      defaultStructure[x, y] = [0, 0, 255]\n",
+        "  \n",
+        "  #Hydrogen\n",
+        "  for x in range(0, 7):\n",
+        "    for y in range(22, 29):\n",
+        "      defaultStructure[x, y] = [128, 128, 128]\n",
+        "\n",
+        "  #Alpha carbon\n",
+        "  for x in range(11, 18):\n",
+        "    for y in range(22, 29):\n",
+        "      defaultStructure[x, y] = [255, 255, 255]\n",
+        "  \n",
+        "  #Alpha carbon bonds\n",
+        "  defaultStructure[14, 20] = [255, 255, 255]\n",
+        "  defaultStructure[14, 21] = [255, 255, 255]\n",
+        "  defaultStructure[14, 29] = [255, 255, 255]\n",
+        "  defaultStructure[14, 30] = [255, 255, 255]\n",
+        "  \n",
+        "  defaultStructure[10, 25] = [255, 255, 255]\n",
+        "  defaultStructure[9, 25] = [255, 255, 255]\n",
+        "  defaultStructure[18, 25] = [255, 255, 255]\n",
+        "  defaultStructure[19, 25] = [255, 255, 255]\n",
+        "\n",
+        "\n",
+        "\n",
+        "  #carboxyl oxygen \n",
+        "  for x in range(0, 7):\n",
+        "    for y in range(33, 40):\n",
+        "      defaultStructure[x, y] = [255, 0, 0]\n",
+        "  \n",
+        "  #carboxyl carbon\n",
+        "  for x in range(11, 18):\n",
+        "    for y in range(33, 40):\n",
+        "      defaultStructure[x, y] = [255, 255, 255]\n",
+        "\n",
+        "  #carboxyl oxygen \n",
+        "  for x in range(22, 29):\n",
+        "    for y in range(33, 40):\n",
+        "      defaultStructure[x, y] = [255, 0, 0]\n",
+        " \n",
+        "  return defaultStructure\n",
+        "\n",
+        "def getGlycine():\n",
+        "  return getDefaultAminoAcidStructure()\n",
+        "\n",
+        "def aminoAcidToStructure(aminoAcid):\n",
+        "  if aminoAcid == \"G\":\n",
+        "    return getGlycine()\n",
+        "  elif aminoAcid == \"A\":\n",
+        "    pass\n",
+        "\n",
+        "def proteinSequenceToPrimaryStrcure():\n",
+        "  proteinSequence = \"G\"\n",
+        "  \n",
+        "  for aminoAcid in proteinSequence:\n",
+        "    a = aminoAcidToStructure(aminoAcid)\n",
+        "    return a"
+      ],
+      "metadata": {
+        "id": "huYnWgPVpDRy"
+      },
+      "execution_count": 187,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a= proteinSequenceToPrimaryStrcure()\n",
+        "image = Image.fromarray(a)\n",
+        "display(image)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 46
+        },
+        "id": "K7mEqsmqnVO5",
+        "outputId": "b624ccc1-86c9-4415-c3b3-dcb94069955a"
+      },
+      "execution_count": 188,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<PIL.Image.Image image mode=RGB size=40x29 at 0x7FF2F4E06550>"
+            ],
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAACgAAAAdCAIAAABXK7kkAAAAb0lEQVR4nO2WwQ6AIAxDqfHD9+fzwEEPlZqIUbO+Ixs0sNEMTRER40WZkOzYRQo/hIUtbD5JJrUKzms1hjS8E8vDHmYXBURCve+03tk86KYeOj74TOF+rqwxpV6NZ/IPA6mHaPp2YYiUeMq0cBHhDUUbJCXi8ThVAAAAAElFTkSuQmCC\n"
+          },
+          "metadata": {}
+        }
+      ]
+    }
+  ]
+}
